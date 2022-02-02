@@ -3,6 +3,8 @@ import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 function Header() {
+  const [burgerStatus, setBurgerStatus] = useState(false);
+
   return (
     <Container id="Container">
       <a>
@@ -29,11 +31,11 @@ function Header() {
       <RightMenu>
         <a href="">Shop</a>
         <a href="">TESLA ACCOUNT</a>
-        <CustomMenu></CustomMenu>
+        <CustomMenu onClick={() => setBurgerStatus(true)}></CustomMenu>
       </RightMenu>
-      <BurgerNav>
+      <BurgerNav id="BurgerNav" show={burgerStatus}>
         <CloseWrapper>
-          <CustomClose />
+          <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWrapper>
         <li>
           {" "}
@@ -112,6 +114,9 @@ const BurgerNav = styled.div`
       font-weight: 500;
     }
   }
+  // 버거네브 움직임 활성화
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 0.3s ease-in;
 `;
 
 const Menu = styled.div`
