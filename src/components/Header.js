@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
-
+import CloseIcon from "@material-ui/icons/Close";
 function Header() {
   return (
     <Container id="Container">
@@ -31,11 +31,88 @@ function Header() {
         <a href="">TESLA ACCOUNT</a>
         <CustomMenu></CustomMenu>
       </RightMenu>
+      <BurgerNav>
+        <CloseWrapper>
+          <CustomClose />
+        </CloseWrapper>
+        <li>
+          {" "}
+          <a href="">Existing Inventory</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Used Inventory</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Trade-in</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">CyberTruck</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Roadaster</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Existing Inventory</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Existing Inventory</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Existing Inventory</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Existing Inventory</a>{" "}
+        </li>
+        <li>
+          {" "}
+          <a href="">Existing Inventory</a>{" "}
+        </li>
+      </BurgerNav>
     </Container>
   );
 }
 
 export default Header;
+
+const CloseWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  // 시원하게 오른쪽으로 붙어준다.
+`;
+const CustomClose = styled(CloseIcon)`
+  cursor: pointer;
+`;
+const BurgerNav = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  width: 300px;
+  z-index: 100;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  --justify-content: flex-start;
+  li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    a {
+      font-weight: 500;
+    }
+  }
+`;
 
 const Menu = styled.div`
   display: flex;

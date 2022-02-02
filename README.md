@@ -1,6 +1,10 @@
-#REACT 학습용
-#REDUX 템플릿 사용
-#yarn - > styled-components, material-icons
+# REACT 학습용
+
+# REDUX 템플릿 사용
+
+# yarn - > styled-components, material-icons , react-reveal
+
+# https://www.tesla.com/ 클론코딩 ( 2022. 02. 02 진행 )
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 

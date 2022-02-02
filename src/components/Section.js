@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 // https://github.com/indevho/react_tesla.git
 //function Section(poops) {  : packed 된 형태  poops.name 으로 불러서 씀.
 function Section({
@@ -17,25 +18,29 @@ function Section({
   }, 3000);
   return (
     <Wrap id="wrap" bgImage={backgroundImg} title={title}>
-      <ItemText>
-        <h1>{title}</h1>
-        <span>{description} </span>
-        <a href="https://www.tesla.com/support/taking-delivery?redirect=no">
-          {description2}
-        </a>
-        {/* 실제로는 touchless delivery안내 페이지 연동됨.
+      <Fade up>
+        <ItemText>
+          <h1>{title}</h1>
+          <span>{description} </span>
+          <a href="https://www.tesla.com/support/taking-delivery?redirect=no">
+            {description2}
+          </a>
+          {/* 실제로는 touchless delivery안내 페이지 연동됨.
         https://www.tesla.com/support/taking-delivery?redirect=no */}
-      </ItemText>
+        </ItemText>
+      </Fade>
       <Buttons>
-        <ButtonGroup id="btGroup">
-          <LeftButton id="leftbutton">{leftBtnText}</LeftButton>
-          {
-            //   if rightBtnText exists
-            rightBtnText && (
-              <RightButton hasText={rightBtnText}>{rightBtnText}</RightButton>
-            )
-          }
-        </ButtonGroup>
+        <Fade up>
+          <ButtonGroup id="btGroup">
+            <LeftButton id="leftbutton">{leftBtnText}</LeftButton>
+            {
+              //   if rightBtnText exists
+              rightBtnText && (
+                <RightButton hasText={rightBtnText}>{rightBtnText}</RightButton>
+              )
+            }
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>
@@ -90,6 +95,8 @@ const RightButton = styled(LeftButton)`
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  //영상 97분
+  z-index: -1;
 `;
 
 const Wrap = styled.div`
@@ -115,4 +122,6 @@ const Wrap = styled.div`
   //
   // 미시적 props 쓰기
   background-image: ${(props) => `url("/images/${props.bgImage}")`};
+  // 영상 97분
+  //z-index: 10;
 `;

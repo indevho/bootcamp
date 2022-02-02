@@ -70,4 +70,6 @@ export default Home;
 const Container = styled.div`
   height: 100vh;
   color: red;
+  //영상 98분 
+  z-index 10;
 `;
