@@ -5,4 +5,7 @@ export const store = configureStore({
   reducer: {
     car: carReducer,
   },
+  reducers: {
+    car: carReducer,
+  },
 });
