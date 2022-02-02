@@ -2,31 +2,31 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
+import { selectCars } from "../features/carSlice/carSlice";
+import { useSelector } from "react-redux";
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
-
+  const cars = useSelector(selectCars);
+  console.log(cars);
   return (
     <Container id="Container">
       <a>
         <img src="/images/logo.svg" alt="문제있냐" />
       </a>
       <Menu id="Menu">
-        <p>
-          {" "}
-          <a href="#">Model S</a>
-        </p>
-        <p>
-          {" "}
-          <a href="#">Model Y</a>
-        </p>
-        <p>
-          {" "}
-          <a href="#">Model 3</a>
-        </p>
-        <p>
-          {" "}
-          <a href="#">Model X</a>
-        </p>
+        {cars &&
+          cars.map((car, index) => (
+            <a key={index} href="#">
+              {car}
+            </a>
+          ))}
+        {/* <a href="#">Model S</a>
+
+        <a href="#">Model Y</a>
+
+        <a href="#">Model 3</a>
+
+        <a href="#">Model X</a> */}
       </Menu>
       <RightMenu>
         <a href="">Shop</a>
@@ -37,10 +37,15 @@ function Header() {
         <CloseWrapper>
           <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWrapper>
-        <li>
-          {" "}
+        {cars &&
+          cars.map((car, index) => (
+            <li key={index}>
+              <a href="">{car}</a>
+            </li>
+          ))}
+        {/* <li>
           <a href="">Existing Inventory</a>{" "}
-        </li>
+        </li> */}
         <li>
           {" "}
           <a href="">Used Inventory</a>{" "}
@@ -56,26 +61,6 @@ function Header() {
         <li>
           {" "}
           <a href="">Roadaster</a>{" "}
-        </li>
-        <li>
-          {" "}
-          <a href="">Existing Inventory</a>{" "}
-        </li>
-        <li>
-          {" "}
-          <a href="">Existing Inventory</a>{" "}
-        </li>
-        <li>
-          {" "}
-          <a href="">Existing Inventory</a>{" "}
-        </li>
-        <li>
-          {" "}
-          <a href="">Existing Inventory</a>{" "}
-        </li>
-        <li>
-          {" "}
-          <a href="">Existing Inventory</a>{" "}
         </li>
       </BurgerNav>
     </Container>

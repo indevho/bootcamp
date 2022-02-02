@@ -12,10 +12,10 @@ function Section({
   backgroundImg,
 }) {
   // : unpacked 된 형태.
-  console.log("hi");
+  //console.log("hi");
   setTimeout(() => {
     console.log({ title });
-  }, 3000);
+  }, 50000);
   return (
     <Wrap id="wrap" bgImage={backgroundImg} title={title}>
       <Fade up>
